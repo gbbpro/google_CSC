@@ -1,0 +1,26 @@
+﻿Security incident report
+
+
+Section 1: Identify the network protocol involved in the incident
+	The protocol involved is HTTP.  Since the issue was accessing the server for yummyrecipesforme.com. The tcpdump that we ran and accessed the website the corresponding log file showed http protocol when contactin the site.
+
+
+	
+
+Section 2: Document the incident
+	
+
+Customers contacted the website stating that when they visited the site they were prompted to run a file that contained access to new recipes.  The customers complained of slow running os since the file run.  The website admin tried to login but they were locked out of their account.
+
+
+We used a sandbox environment to open the website and ran tcp dump to capture the network traffic packets produced by the website.  We were prompted to download a file claiming it would provide access to free recipes - we ran the download.  The bowser then redirected us to greatformerecipes.com This is all backed up in the tcpdump log files.
+
+
+We believe this was a brute force attack since the owner stated that they had been locked out.
+	
+
+Section 3: Recommend one remediation for brute force attacks
+	
+
+1 updated passwords regularly
+2 use mfa authentication
