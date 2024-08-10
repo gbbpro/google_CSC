@@ -62,3 +62,10 @@ While reviewing authorizations in projects directory I found some files and a di
       * project_k.txt - this file contains information not for general use the authorizations were to - -rw-rw— researcher2 research project_k.txt
       * .project_x.txt is an archived file write authorization was removed from all and read authorization was added to the group
       * Finally the drafts directory authorization was removed from all except the user “researcher2”
+
+Using the chmod command you can modifiy who is authorized to read, write to, excute a file or directory.
+
+the structure of user, group, other is visualised when you use the ls or list command with the argument -l  this will show you the permissions before the file like so:
+     * -rwxrwxrwx translates to - = file, first three rwx represent the user; next three represent the group and the final represent everyone else or other.  r = read - w = write - x = execute.  - or d at the beginning signify if it is a file - or a directory d.  if the user field was -w- then the user could only write to the file or directory, but could not read or execute.  if the group should only have read permissions for a file the that section would read r--  
+     * the following is a folder that is read write execute for the user only and no one else drwx------
+     * dotfiles or . files like .venv or .bashrc are hidden files in a directory if you want to list them then you would need to add the -a argument to the ls command like so ls -a or ls -la to also see the permissions
