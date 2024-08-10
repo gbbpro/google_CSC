@@ -1,0 +1,64 @@
+﻿File permissions in Linux
+Project description
+examine existing permissions on the file system to see  if the permissions match the authorization that should be given. If they do not match -  modify the permissions to authorize the appropriate users and remove any unauthorized access.
+Check file and directory details
+ls -l
+Describe the permissions string
+drwx--x--- “this is a directory noted by the first position “d” the user has read, write & executable permissions, the group has executable permissions only, and others can not read,  write or execute this directory”
+
+
+Change file permissions
+                                   
+*         project_k.txt
+         
+   *                 User = read, write,                 
+   *                 Group = read, write
+   *                 Other = read, write
+-rw-rw-rw researcher2 research project_k.txt
+
+
+Chmod o-rw project_k.txt
+
+
+The chmod command is taking away read and write privileges from the owner group
+
+
+ls -l
+
+
+-rw-rw— researcher2 research project_k.txt
+ 
+
+
+
+
+Change file permissions on a hidden file
+                                   
+   *         .project_x.txt
+         
+      *                 User = read, write
+      *                 Group = write
+      *                 Other = none
+chmod u-w, g-w,g+r .project_x.txt
+This chmod command first removes the write permissions from the user, then removes write privileges from the group and then adds read permissions to the group
+
+
+Change directory permissions
+
+
+                                   
+There is also one subdirectory inside the projects directory named drafts. The permissions on drafts are:
+      *         User = read, write, execute
+      *         Group = execute
+      *         Other = none
+The files and directories in the projects directory belong to the researcher2 user. Only researcher2 should be allowed to access the drafts directory and its contents. Use a Linux command to modify the permissions accordingly.
+chmod g-x drafts
+
+
+This command removes the executable permissions from the group
+Summary
+While reviewing authorizations in projects directory I found some files and a directory that needed to be modified:
+      * While in the project directory I modified authorization to:
+      * project_k.txt - this file contains information not for general use the authorizations were to - -rw-rw— researcher2 research project_k.txt
+      * .project_x.txt is an archived file write authorization was removed from all and read authorization was added to the group
+      * Finally the drafts directory authorization was removed from all except the user “researcher2”
